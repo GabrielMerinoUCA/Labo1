@@ -1,7 +1,6 @@
 package Model.Collection;
 
 import Model.Entity.Evento;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +9,7 @@ public class ColeccionEventos {
     private static ColeccionEventos instancia;
     private Map<String, Evento> eventos = new HashMap<String, Evento>();
 
-
+    private ColeccionEventos(){}
 
     public static ColeccionEventos getInstancia() {
         if(instancia == null) {
@@ -20,6 +19,10 @@ public class ColeccionEventos {
     }
 
     public void agregarEvento(Evento evento) {
-        //eventos.put(evento. ,evento);
+        eventos.put(evento.getReserva().getNumeroCorrelativo(), evento);
+    }
+
+    public Map<String, Evento> getEventos() {
+        return eventos;
     }
 }

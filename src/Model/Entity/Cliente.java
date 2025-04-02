@@ -12,4 +12,9 @@ public class Cliente {
     private String numeroTelefono;
     private String lugarTrabajo;
     private ArrayList<Evento> eventos;
+
+    public void agregarEvento(Evento evento) {
+
+        eventos.add(evento);
+    }
 }

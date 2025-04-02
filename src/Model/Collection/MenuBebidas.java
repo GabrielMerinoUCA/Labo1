@@ -4,7 +4,7 @@ import Model.Entity.Bebida;
 
 import java.util.ArrayList;
 
-public class ColeccionBebidas {
+public class MenuBebidas {
     private ArrayList<Bebida> bebidas;
 
 }

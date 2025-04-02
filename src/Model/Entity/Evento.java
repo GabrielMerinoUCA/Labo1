@@ -1,10 +1,10 @@
 package Model.Entity;
 
-import java.time.LocalTime;
+import Model.Enum.TipoEvento;
 import java.util.ArrayList;
 
 public abstract class Evento {
-    protected String nombreEvento;
+    protected TipoEvento tipoEvento;
     protected Integer EventoID;
     protected Float precio;
     protected Integer numeroInvitados;

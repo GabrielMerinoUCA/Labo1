@@ -2,6 +2,7 @@ package Controller;
 
 import Model.DTO.ReservaDTO;
 import Model.Entity.Cliente;
+import Model.Entity.Evento;
 import Model.Entity.Reserva;
 
 import java.text.SimpleDateFormat;
@@ -16,8 +17,13 @@ public class ReservaController {
 
     public void agregarReserva() {
         ClienteController clienteController = new ClienteController();
+        EventoController eventoController = new EventoController();
+
         Cliente cliente = clienteController.crearCliente();
         Reserva reserva = crearReserva();
+        Evento evento = eventoController.crearEvento();
+
+        // funcionalidad para guardar cliente y evento en la coleccion hace falta
     }
 
     public Reserva crearReserva() {
@@ -30,21 +36,24 @@ public class ReservaController {
         Scanner scanner = new Scanner(System.in);
 
         do {
-            System.out.print("Fecha (usar formato DD/MM/YYYY): ");
+            System.out.print("Fecha (usar formato DD/MM/YYYY, incluir barras): ");
             fecha = scanner.nextLine();
             if (!isValidDate(fecha)) {
+                System.out.println("\nFormato invalido!");
                 continue;
             }
 
-            System.out.println("\nHora (usar formato HH:MM): ");
+            System.out.print("\nHora (usar formato HH:MM, incluir dos puntos): ");
             hora = scanner.nextLine();
             if (!isValidHour(hora)) {
+                System.out.println("\nFormato invalido!");
                 continue;
             }
 
-            System.out.println("\nHora de finalizacion de evento (usar formato HH:MM): ");
+            System.out.print("\nHora de finalizacion de evento (usar formato HH:MM, incluir dos puntos): ");
             horaFin = scanner.nextLine();
             if (!isValidHour(horaFin)) {
+                System.out.println("\nFormato invalido!");
                 continue;
             }
             break;
@@ -75,8 +84,6 @@ public class ReservaController {
         String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         char char1 = alfabeto.charAt(random.nextInt(alfabeto.length()));
         char char2 = alfabeto.charAt(random.nextInt(alfabeto.length()));
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
         return "KB-" + Integer.toString(random.nextInt(10)) + Integer.toString(random.nextInt(10)) +
                 "T" + char1 + char2 + random.nextInt(10) + "-" +

@@ -18,8 +18,17 @@ public class ColeccionEventos {
         return instancia;
     }
 
-    public void agregarEvento(Evento evento) {
-        eventos.put(evento.getReserva().getNumeroCorrelativo(), evento);
+    /**
+     * Agrega Eventos y evita duplicados
+     * @param evento
+     * @return verdadero si no existe y por ender se guardo,
+     *      * falso si ya existe y por ende no se guardo.
+     */
+    public Boolean agregarEvento(Evento evento) {
+        if(eventos.get(evento.getReserva().getNumeroCorrelativo()) == null) {
+            eventos.put(evento.getReserva().getNumeroCorrelativo(), evento);
+            return true;
+        } return false;
     }
 
     public Map<String, Evento> getEventos() {

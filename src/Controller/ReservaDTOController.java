@@ -21,7 +21,7 @@ public class ReservaDTOController {
     /**
      * Obtener objeto Reserva a partir de ReservaDTO
      * @return
-     * @throws ParseException
+     *
      */
     public Reserva getReserva() {
         try {
@@ -37,7 +37,6 @@ public class ReservaDTOController {
         } catch (Exception e) {
             System.out.println("Error inesperado");
         }
-
         return null;
     }
 
